@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanael Angelyn Orodio | About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-purple: #2e073f;
+            --medium-purple: #7a1cac;
+            --accent: #ad49e1;
+            --light: #ebd3f8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5fd;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--medium-purple) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(46, 7, 63, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--light), white);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--light);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--light);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-purple);
+            position: relative;
+            font-size: 2.2rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--medium-purple));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(46, 7, 63, 0.1);
+            text-align: center;
+            position: sticky;
+            top: 120px;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--light);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 25px rgba(122, 28, 172, 0.2);
+        }
+        
+        .profile-card h2 {
+            color: var(--dark-purple);
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-card .title {
+            color: var(--medium-purple);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(46, 7, 63, 0.08);
+            transition: transform 0.3s;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card h3 {
+            color: var(--dark-purple);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-card h3 i {
+            color: var(--accent);
+        }
+        
+        .hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .hobby-tag {
+            background: var(--light);
+            color: var(--dark-purple);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .hobby-tag:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent), var(--medium-purple));
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 80px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--medium-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            box-shadow: 0 0 0 5px white, 0 0 0 10px var(--light);
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(46, 7, 63, 0.08);
+            transition: all 0.3s;
+            border-top: 3px solid var(--accent);
+        }
+        
+        .timeline-content:hover {
+            box-shadow: 0 15px 35px rgba(46, 7, 63, 0.12);
+        }
+        
+        .timeline-content h3 {
+            color: var(--dark-purple);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--medium-purple) 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-card {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .nav-links li {
+                margin: 0;
+            }
+            
+            .timeline:before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+            
+            .timeline-marker {
+                left: 10px;
+            }
+        }
+        
+        .skill-bar {
+            margin-top: 1.5rem;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: var(--dark-purple);
+        }
+        
+        .skill-percentage {
+            color: var(--medium-purple);
+            font-weight: 600;
+        }
+        
+        .skill-progress {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--accent), var(--medium-purple));
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-laptop-code"></i>
+                    Shanael Orodio
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="profile-card">
+                    <img src="shapicturejpg.jpg" alt="Shanael Angelyn Orodio" class="profile-img">
+                    <h2>Shanael Angelyn Orodio</h2>
+                    <p class="title">BS Information Technology Student</p>
+                    <div class="info-item">
+                        <p><i class="fas fa-user"></i> <strong>Age:</strong> 20 Years Old</p>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Calem, Guimba, Nueva Ecija</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-user-graduate"></i> Background</h3>
+                        <p>I am a third-year Bachelor of Science in Information Technology student with a passion for using technology to solve real-world problems and contribute to digital transformation across various sectors.</p>
+                        <p>Throughout my academic journey, I have gained foundational knowledge in software development, web and mobile programming, database systems, digital logic, and information security.</p>
+                        
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span class="skill-name">Web Development</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span class="skill-name">Mobile Development</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span class="skill-name">Database Systems</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-heart"></i> Hobbies & Interests</h3>
+                        <div class="hobbies">
+                            <span class="hobby-tag">Watching Kdrama</span>
+                            <span class="hobby-tag">Playing Games</span>
+                            <span class="hobby-tag">Listening to Music</span>
+                            <span class="hobby-tag">Reading Books</span>
+                            <span class="hobby-tag">Cooking</span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-road"></i> My Learning Journey</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker">1</div>
+                                <div class="timeline-content">
+                                    <h3>First Year</h3>
+                                    <p>During my first year, I had a hard time adjusting to the topics we studied. At first, I found Java the most difficult to understand because I struggled to keep up with the lessons. However, when we started learning HTML, I began to understand more, especially when it came to designing and other related tasks. It was difficult to adjust at first, but as time went on, I was able to learn a lot.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">2</div>
+                                <div class="timeline-content">
+                                    <h3>Second Year</h3>
+                                    <p>During my second year, one of the most challenging experiences was working with Arduino for our Clinic Management System project. Through this, I learned a lot, especially in assembling and programming the Arduino. It taught me how hardware and software work together, and it improved my problem-solving and teamwork skills.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">3</div>
+                                <div class="timeline-content">
+                                    <h3>Third Year</h3>
+                                    <p>Now that I'm in my third year, I continue to study and grow, aiming to deepen my knowledge in programming and technology. We plan to further develop our Arduino-based Clinic Management System and hope to successfully present it as our capstone project. This opportunity inspires me to work harder, apply everything I've learned, and explore more advanced skills in both hardware integration and network development.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2023 Shanael Angelyn Orodio. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
